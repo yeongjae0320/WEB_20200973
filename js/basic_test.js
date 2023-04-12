@@ -12,16 +12,14 @@ if (true) {
 	var c_1 = 'var 접근';
 }
 
-//console.log(c) // Error?
+//console.log(c) // Error? -> Error
 console.log(c_1);
 
 let d = 5;
-// let d = '값 재할당';	// Error?
+//let d = '값 재할당';	// Error? -> Error
 console.log(d);
 
 const e = '상수 1 접근';
-// e = 5;
-// const f // Error?
+//e = 5;
+//const f // Error? -> Error
 console.log(e);
-
-}
