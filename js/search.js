@@ -1,4 +1,6 @@
-/*document.getElementById("search_btn").addEventListener('click', search_message);
+document.getElementById("search_btn").addEventListener('click', search_message);
+
+var search_array = [];	//빈 배열 - 전역 변수
 
 //변수에 저장
 let search_str = document.querySelector("#search_txt");
@@ -10,16 +12,18 @@ function search_message(){
 	}
 	else {
 		alert("검색을 수행합니다!");
+		search_array.push(search_str.value);	//배열에 검색어 추가
 		//태그에 값 추가
-		let text = document.getElementById("search_message").innerHTML = search_str.value;
+		let text = document.getElementById("search_message").innerHTML = search_array.toString();	//값 변환
 		document.querySelector("#form_main").submit();
 	}
 	
 	
 	//콘솔에 출력
 	//console.log(search_str.value);
-}*/
+}
 
+/*
 // 검색 제한 단어
 const forbiddenWords = ["금지어1", "금지어2", "금지어3"];
 
@@ -45,3 +49,4 @@ function search_message(){
 	//콘솔에 출력
 	//console.log(search_str.value);
 }
+*/
