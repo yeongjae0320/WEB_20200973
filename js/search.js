@@ -1,6 +1,7 @@
 document.getElementById("search_btn").addEventListener('click', search_message);
 
 var search_array = [];	//빈 배열 - 전역 변수
+var MAX_SEARCH_COUNT = 10;    //최대 검색어 개수
 
 //변수에 저장
 let search_str = document.querySelector("#search_txt");
@@ -10,6 +11,10 @@ function search_message(){
 	if (search_str.value.length === 0) {
 		alert("검색어가 비었습니다. 입력해주세요");
 	}
+	else if (search_array.length >= MAX_SEARCH_COUNT) {
+        alert("최대 검색어 개수를 초과하였습니다.");
+        search_array.splice(0, 1);    //첫번째 값 삭제
+    }
 	else {
 		alert("검색을 수행합니다!");
 		search_array.push(search_str.value);	//배열에 검색어 추가
