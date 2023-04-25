@@ -10,6 +10,7 @@ b = 5;
 if (true) {
 	let c = 'let 접근';
 	var c_1 = 'var 접근';
+	//console.log(c); 여기서는 접근가능 출력됨.
 }
 
 //console.log(c) // Error? -> Error
