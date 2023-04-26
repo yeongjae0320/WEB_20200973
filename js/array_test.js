@@ -13,9 +13,9 @@ console.log(typeof cars); // 배열 타입 : 객체
 
 document.getElementById("객체 아이디").innerHTML = cars; // 이름 참조
 
-// for (var i = 0; i < all.length; i++) { // for문
-//     console.log(all[i]); 
-// }
-// all.forEach((value, index) => { // foreach 문
-//     console.log('Index: ' + index + 'Value: ' + value); 
-// }); 
+ for (var i = 0; i < all.length; i++) { // for문
+     console.log(all[i]); 
+ }
+ all.forEach((value, index) => { // foreach 문
+     console.log('Index: ' + index + ' Value: ' + value); 
+ }); 
