@@ -2,16 +2,26 @@ function login(){
     let form = document.querySelector("#form_main");
     let id = document.querySelector("#floatingInput");
     let password = document.querySelector("#floatingPassword");
+    let id_regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    let pw_regex = /^[a-zA-Z0-9!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]{8,}$/;
+
+    if(!id_regex.test(id.value)) {
+        alert("유효한 이메일 주소를 입력해주세요.");
+        //id.focus();
+        return false;
+    }
+    
+    if(!pw_regex.test(password.value)) {
+        alert("비밀번호는 8자리 이상의 영문 대소문자, 숫자, 특수문자를 조합하여 입력해주세요.");
+        //password.focus();
+        return false;
+    }
     
     form.action = "../index_login.html";
     form.method = "get";
-    
-    if(id.value.length === 0 || password.value.length === 0){
-        alert("아이디와 비밀번호를 모두 입력해주세요.");
-    }else{
-        form.submit();
-    }
+    form.submit();
 }
+
 
 function logout(){
     location.href='../index.html';
