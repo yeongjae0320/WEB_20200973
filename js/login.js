@@ -2,9 +2,34 @@ function login(){
     let form = document.querySelector("#form_main");
     let id = document.querySelector("#floatingInput");
     let password = document.querySelector("#floatingPassword");
+	let check = document.querySelector("#idSaveCheck");
     let id_regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     let pw_regex = /^[a-zA-Z0-9!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]{8,}$/;
 
+	if(check.checked == true) { // 아이디 체크 o
+            alert("쿠키를 저장합니다.");
+            setCookie("id", id.value, 1); // 1일 저장
+            alert("쿠키 값 :" + id.value);
+        } 
+    else { // 아이디 체크 x
+            setCookie("id", id.value, 0); //날짜를 0 - 쿠키 삭제
+    }
+	
+    /*if(id.value.length === 0 || password.value.length === 0){
+        alert("아이디와 비밀번호를 모두 입력해주세요.");
+    }else{
+        form.submit();
+    }*/
+	
+	function closePopup() {
+        if (document.getElementById('check_popup').value) {
+            setCookie("id", "N", 1);
+            console.log("쿠키를 설정합니다.");
+            self.close();
+        }
+    }
+
+	
     if(!id_regex.test(id.value)) {
         alert("유효한 이메일 주소를 입력해주세요.");
         //id.focus();
