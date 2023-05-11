@@ -20,14 +20,6 @@ function login(){
     }else{
         form.submit();
     }*/
-	
-	function closePopup() {
-        if (document.getElementById('check_popup').value) {
-            setCookie("id", "N", 1);
-            console.log("쿠키를 설정합니다.");
-            self.close();
-        }
-    }
 
 	
     if(!id_regex.test(id.value)) {
@@ -53,6 +45,13 @@ function deleteCookie(cookieName){
     document.cookie = cookieName + "= " + "; expires=" + expireDate.toGMTString();
 }
 
+function closePopup() {
+        if (document.getElementById('check_popup').value) {
+            setCookie("id", "N", 1);
+            console.log("쿠키를 설정합니다.");
+            self.close();
+        }
+    }
 
 function logout(){
     location.href='../index.html';
