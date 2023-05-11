@@ -47,7 +47,7 @@ function getCookie(name) {
                 }
             }
         }
-        return ;
+        return;
 }
 
 function closePopup() {
