@@ -15,11 +15,11 @@ function login(){
             setCookie("id", id.value, 0); //날짜를 0 - 쿠키 삭제
     }
 	
-    /*if(id.value.length === 0 || password.value.length === 0){
+    if(id.value.length === 0 || password.value.length === 0){
         alert("아이디와 비밀번호를 모두 입력해주세요.");
     }else{
         form.submit();
-    }*/
+    }
 
 	
     if(!id_regex.test(id.value)) {
@@ -39,11 +39,17 @@ function login(){
     form.submit();
 }
 
-function deleteCookie(cookieName){
-    var expireDate = new Date();
-    expireDate.setDate(expireDate.getDate() - 1);
-    document.cookie = cookieName + "= " + "; expires=" + expireDate.toGMTString();
+function init(){ // 로그인 폼에 쿠키에서 가져온 아이디 입력
+    let id = document.querySelector("#floatingInput");
+    let check = document.querySelector("#idSaveCheck");
+    let get_id = getCookie("id");
+    
+    if(get_id) { 
+    id.value = get_id; 
+    check.checked = true; 
+    }
 }
+
 
 function closePopup() {
         if (document.getElementById('check_popup').value) {
@@ -51,7 +57,13 @@ function closePopup() {
             console.log("쿠키를 설정합니다.");
             self.close();
         }
-    }
+}
+
+function deleteCookie(cookieName){
+    var expireDate = new Date();
+    expireDate.setDate(expireDate.getDate() - 1);
+    document.cookie = cookieName + "= " + "; expires=" + expireDate.toGMTString();
+}
 
 function logout(){
     location.href='../index.html';
