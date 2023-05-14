@@ -39,17 +39,6 @@ function login(){
     form.submit();
 }
 
-function init(){ // 로그인 폼에 쿠키에서 가져온 아이디 입력
-    let id = document.querySelector("#floatingInput");
-    let check = document.querySelector("#idSaveCheck");
-    let get_id = getCookie("id");
-    
-    if(get_id) { 
-    id.value = get_id; 
-    check.checked = true; 
-    }
-}
-
 
 function closePopup() {
         if (document.getElementById('check_popup').value) {
@@ -57,12 +46,6 @@ function closePopup() {
             console.log("쿠키를 설정합니다.");
             self.close();
         }
-}
-
-function deleteCookie(cookieName){
-    var expireDate = new Date();
-    expireDate.setDate(expireDate.getDate() - 1);
-    document.cookie = cookieName + "= " + "; expires=" + expireDate.toGMTString();
 }
 
 function logout(){
@@ -84,5 +67,23 @@ function get_id(){
 		    }
 	    } // 2중 for문 끝
 }; // 함수 끝
+	
 alert(getParameters('id') + '님 방갑습니다!'); // 메시지 창 출력
+}
+
+function deleteCookie(cookieName){
+    var expireDate = new Date();
+    expireDate.setDate(expireDate.getDate() - 1);
+    document.cookie = cookieName + "= " + "; expires=" + expireDate.toGMTString();
+}
+
+function init(){ // 로그인 폼에 쿠키에서 가져온 아이디 입력
+    let id = document.querySelector("#floatingInput");
+    let check = document.querySelector("#idSaveCheck");
+    let get_id = getCookie("id");
+    
+    if(get_id) { 
+    id.value = get_id; 
+    check.checked = true; 
+    }
 }
