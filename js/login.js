@@ -6,6 +6,17 @@ function login(){
     let id_regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     let pw_regex = /^[a-zA-Z0-9!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]{8,}$/;
 
+	
+	//let login_cnt = parseInt(getCookie("login_cnt")); // 기존 쿠키의 값을 가져옴
+    //if (isNaN(login_cnt)) { // 기존 쿠키의 값이 없으면 초기값 0으로 설정
+    //    login_cnt = 0;
+    //}
+    //login_cnt += 1; // 로그인 횟수 증가
+    //setCookie("login_cnt", login_cnt, 1); // 새로운 쿠키 값을 설정
+	
+	
+	
+	
 	if(check.checked == true) { // 아이디 체크 o
             alert("쿠키를 저장합니다.");
             setCookie("id", id.value, 1); // 1일 저장
@@ -48,7 +59,43 @@ function closePopup() {
         }
 }
 
+
+function setCookie(name, value, expiredays) {
+        var date = new Date();
+        date.setDate(date.getDate() + expiredays);
+        document.cookie = escape(name) + "=" + escape(value) + "; expires=" + date.toUTCString();        
+    }
+
+
+function getCookie(name) {
+        var cookie = document.cookie;
+        console.log("쿠키를 요청합니다.");
+        if (cookie != "") {
+            var cookie_array = cookie.split("; ");
+            for ( var index in cookie_array) {
+                var cookie_name = cookie_array[index].split("=");
+                
+                if (cookie_name[0] == "id") {
+                    return cookie_name[1];
+                }
+            }
+        }
+        return ;
+}
+
+
 function logout(){
+	
+	//let logout_cnt = parseInt(getCookie("logout_cnt")); // 기존 쿠키의 값을 가져옴
+   // if (isNaN(logout_cnt)) { // 기존 쿠키의 값이 없으면 초기값 0으로 설정
+   //     logout_cnt = 0;
+   // }
+    //logout_cnt += 1; // 로그아웃 횟수 증가
+    //setCookie("logout_cnt", logout_cnt, 1); // 새로운 쿠키 값을 설정
+	
+	
+	
+	
     location.href='../index.html';
 }
 
