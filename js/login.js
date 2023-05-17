@@ -1,3 +1,5 @@
+
+
 function login(){
     let form = document.querySelector("#form_main");
     let id = document.querySelector("#floatingInput");
@@ -49,6 +51,10 @@ function login(){
     form.action = "../index_login.html";
     form.method = "get";
     form.submit();
+	
+	//11주차 X분 안에 풀기 퀴즈
+	
+	
 }
 
 
