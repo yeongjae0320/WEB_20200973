@@ -17,8 +17,6 @@ function login(){
 	setCookie("login_cnt", login_cnt, 1); // 새로운 쿠키 값을 설정
 	
 	
-	
-	
 	if(check.checked == true) { // 아이디 체크 o
             alert("쿠키를 저장합니다.");
             setCookie("id", id.value, 1); // 1일 저장
@@ -28,11 +26,22 @@ function login(){
             setCookie("id", id.value, 0); //날짜를 0 - 쿠키 삭제
     }
 	
-    if(id.value.length === 0 || password.value.length === 0){
+    //if(id.value.length === 0 || password.value.length === 0){
+    //    alert("아이디와 비밀번호를 모두 입력해주세요.");
+    //}else{
+	//	session_set(); // 세션 생성 (11주차 추가)
+    //    form.submit();
+    //}
+	
+	if (id.value.length === 0 || password.value.length === 0) {
         alert("아이디와 비밀번호를 모두 입력해주세요.");
-    }else{
-		session_set(); // 세션 생성 (11주차 추가)
-        form.submit();
+    } else {
+        if (login_cnt > 3) { // 로그인 실패 횟수가 3회 이상인 경우
+            alert("로그인이 제한되었습니다. 관리자에게 문의하세요.");
+        } else {
+            session_set(); // 세션 생성 (11주차 추가)
+            form.submit();
+        }
     }
 
 	
@@ -52,9 +61,12 @@ function login(){
     form.method = "get";
     form.submit();
 	
-	//11주차 X분 안에 풀기 퀴즈
 	
-	
+}
+
+// 실패 횟수 쿠키를 초기화하는 함수 (임시로 추가)
+function resetLoginCount() {
+    setCookie("login_cnt", 0, 1);
 }
 
 
@@ -169,6 +181,7 @@ function session_get() {	//세션 읽기
 	}
 }
 
+//왜 그러는거지???????????????????????????????????????????
 function session_check() {	//세션 검사
 	if (sessionStorage.getItem("Session_Storage_test")) {
 		alert("이미 로그인 되었습니다.");
