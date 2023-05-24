@@ -15,13 +15,6 @@ function login(){
             setCookie("id", id.value, 0); //날짜를 0 - 쿠키 삭제
     }
 	
-    //if(id.value.length === 0 || password.value.length === 0){
-    //    alert("아이디와 비밀번호를 모두 입력해주세요.");
-    //}else{
-	//	session_set(); // 세션 생성 (11주차 추가)
-    //    form.submit();
-    //}
-	
 	if (id.value.length === 0 || password.value.length === 0) {
         alert("아이디와 비밀번호를 모두 입력해주세요.");
     } else {
