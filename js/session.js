@@ -83,3 +83,9 @@ function session_join_set(){ //세션 저장(객체)
         alert("세션 스토리지 지원 x");
     }   
 }
+
+function session_join_get() {
+
+	
+	
+}
