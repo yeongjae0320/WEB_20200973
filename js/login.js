@@ -47,6 +47,17 @@ function login(){
 	
 }
 
+//10주차 응용 문제
+//버튼을 클릭할 때마다 횟수(정수)를 증가
+//기존 쿠키의 카운트 값을 얻는다.
+//쿠키의 값을 +1 업데이트 한다.
+function login_count() {
+	//쿠키 이름 login_cnt 으로 하기
+}
+function logout_count() {
+	//쿠키 이름 logout_cnt 으로 하기
+}
+
 function closePopup() {
         if (document.getElementById('check_popup').value) {
             setCookie("id", "N", 1);
