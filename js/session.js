@@ -15,14 +15,14 @@
 function session_set(){ //세션 저장(객체)    
     let id = document.querySelector("#floatingInput");
     let password = document.querySelector("#floatingPassword");
-    let random = new Date(); // 랜덤 타임스탬프
+    let random = new Date(); // 현재 시간을 사용하여 랜덤 타임스탬프
     
     const obj = { // 객체 선언
     	id : id.value,
     	otp : random
     }
     
-    if (sessionStorage) {
+    if (sessionStorage) {	//세션스토리지가 지원되는 경우
         const objString = JSON.stringify(obj); // 객체 -> JSON 문자열 변환
         let en_text = encrypt_text(objString); // 암호화
         sessionStorage.setItem("Session_Storage_object", objString);
@@ -40,7 +40,6 @@ function session_get() {	//세션 읽기
 	}
 }
 
-//왜 그러는거지???????????????????????????????????????????
 function session_check() {	//세션 검사
 	if (sessionStorage.getItem("Session_Storage_test")) {
 		alert("이미 로그인 되었습니다.");
@@ -60,7 +59,7 @@ function session_del() {	//세션 삭제
 }
 
 //12주차 회원가입용 세션 함수 추가 구현
-function session_join_set(){ //세션 저장(객체)    
+function session_join_set() { //세션 저장(객체)    
     let f_name = document.querySelector("#firstName").value;
     let l_name = document.querySelector("#lastName").value;
     let b_day = document.querySelector("#birthdayDate").value;
