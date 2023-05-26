@@ -1,8 +1,10 @@
 function setCookie(name, value, expiredays) {
-        var date = new Date();
-        date.setDate(date.getDate() + expiredays);
-        document.cookie = escape(name) + "=" + escape(value) + "; expires=" + date.toUTCString();        
-    }
+    var date = new Date();
+    date.setDate(date.getDate() + expiredays);
+    document.cookie = escape(name) + "=" + escape(value) + "; expires=" + date.toUTCString();        
+	//document.cookie = "login_cnt" + "=" + 3;
+	
+}
 
 //이 함수는 쿠키를 가져오는 역할을 합니다. 인자로는 쿠키의 이름(name)이 필요합니다.
 //함수 내부에서는 document.cookie를 통해 현재 페이지에 저장된 모든 쿠키를 가져옵니다.

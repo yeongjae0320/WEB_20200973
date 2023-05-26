@@ -1,3 +1,7 @@
+let login_fail_cnt = 1;
+let login_cnt = 1;
+let logout_cnt = 1;
+
 function login(){
     let form = document.querySelector("#form_main");
     let id = document.querySelector("#floatingInput");
@@ -30,6 +34,20 @@ function login(){
     
     if(!pw_regex.test(password.value)) {
         alert("비밀번호는 8자리 이상의 영문 대소문자, 숫자, 특수문자를 조합하여 입력해주세요.");
+		//쿠키에 로그인 실패 카운팅
+		setCookie("login_fail", login_fail_cnt, 1);
+		if (login_fail_cnt === 1) {
+			login_fail_cnt = login_fail_cnt + 1;
+			return;
+		}
+		if (login_fail_cnt === 2) {
+			login_fail_cnt = login_fail_cnt + 1;
+			return;
+		}
+		if (login_fail_cnt === 3) {
+			alert("로그인 가능 횟수를 초과했습니다. 10초간 로그인 할 수 없습니다.");
+			return;
+		}
         //password.focus();
         return false;
     }
@@ -37,18 +55,21 @@ function login(){
     form.action = "../index_login.html";
     form.method = "get";
     form.submit();
-	
+
+	login_count();
 }
 
 //10주차 응용 문제
 //버튼을 클릭할 때마다 횟수(정수)를 증가
 //기존 쿠키의 카운트 값을 얻는다.
 //쿠키의 값을 +1 업데이트 한다.
+
 function login_count() {
-	//쿠키 이름 login_cnt 으로 하기
+	setCookie("login_cnt", login_cnt, 1);
 }
+
 function logout_count() {
-	//쿠키 이름 logout_cnt 으로 하기
+	setCookie("logout_cnt", logout_cnt, 1);	
 }
 
 function closePopup() {
@@ -62,6 +83,7 @@ function closePopup() {
 function logout(){
 	session_del();	//세션 삭제 (11주차)
     location.href='../index.html';
+	logout_count();
 }
 
 function get_id(){
