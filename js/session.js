@@ -82,3 +82,8 @@ function session_join_set() { //세션 저장(객체)
         alert("세션 스토리지 지원 x");
     }   
 }
+
+function session_join_get() {
+	let storedValue = sessionStorage.getItem("key");
+	console.log(storedValue);	//이렇게하면 응 가 만 가져온다.
+}
