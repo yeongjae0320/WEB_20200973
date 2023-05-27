@@ -84,6 +84,6 @@ function session_join_set() { //세션 저장(객체)
 }
 
 function session_join_get() {
-	let storedValue = sessionStorage.getItem("key");
-	console.log(storedValue);	//이렇게하면 응 가 만 가져온다.
+	let storedValue = sessionStorage.getItem("Session_Storage_object");
+	console.log(storedValue);	//대박 ㅠㅠ난 천재다
 }
