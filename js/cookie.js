@@ -11,21 +11,40 @@ function setCookie(name, value, expiredays) {
 //가져온 쿠키들은 ; 를 기준으로 나누어 배열(cookie_array)로 저장됩니다.
 //그런 다음 각 쿠키의 이름과 값을 비교하여 요청한 이름(name)과 일치하는 쿠키의 값을 반환합니다.
 //쿠키가 없으면 빈 값을 반환합니다.
-function getCookie(name) {	
-        var cookie = document.cookie;
-        console.log("쿠키를 요청합니다.");
-        if (cookie != "") {
-            var cookie_array = cookie.split("; ");
-            for (var index in cookie_array) {
-                var cookie_name = cookie_array[index].split("=");
+
+// function getCookie(name) {	
+//         var cookie = document.cookie;
+//         console.log("쿠키를 요청합니다.");
+//         if (cookie != "") {
+//             var cookie_array = cookie.split("; ");
+//             for (var index in cookie_array) {
+//                 var cookie_name = cookie_array[index].split("=");
                 
-                if (cookie_name[0] == "id") {
-                    return cookie_name[1];
-                }
+//                 if (cookie_name[0] == "id") {
+//                     return cookie_name[1];
+//                 }
+//             }
+//         }
+//         return ;
+// }
+
+//10주차 도전과제 로그인, 로그아웃
+function getCookie(name) {	
+    var cookie = document.cookie;
+    console.log("쿠키를 요청합니다.");
+    if (cookie != "") {
+        var cookie_array = cookie.split("; ");
+        for (var index in cookie_array) {
+            var cookie_name = cookie_array[index].split("=");
+            
+            if (cookie_name[0] == name) { // 요청한 이름(name)과 일치하는 쿠키의 값을 반환
+                return cookie_name[1];
             }
         }
-        return ;
+    }
+    return ""; // 쿠키가 없으면 빈 값을 반환
 }
+
 
 function deleteCookie(cookieName){
     var expireDate = new Date();

@@ -1,7 +1,3 @@
-let login_fail_cnt = 1;
-let login_cnt = 1;
-let logout_cnt = 1;
-
 function login(){
     let form = document.querySelector("#form_main");
     let id = document.querySelector("#floatingInput");
@@ -20,43 +16,34 @@ function login(){
     }
 	
 	if (id.value.length === 0 || password.value.length === 0) {
+		login_fail();
         alert("아이디와 비밀번호를 모두 입력해주세요.");
     } else {
+		
             session_set(); // 세션 생성 (11주차 추가)
             form.submit();
     }
 	
     if(!id_regex.test(id.value)) {
+		login_fail();
         alert("유효한 이메일 주소를 입력해주세요.");
         //id.focus();
         return false;
     }
     
     if(!pw_regex.test(password.value)) {
+		login_fail();
         alert("비밀번호는 8자리 이상의 영문 대소문자, 숫자, 특수문자를 조합하여 입력해주세요.");
-		//쿠키에 로그인 실패 카운팅
-		setCookie("login_fail", login_fail_cnt, 1);
-		if (login_fail_cnt === 1) {
-			login_fail_cnt = login_fail_cnt + 1;
-			return;
-		}
-		if (login_fail_cnt === 2) {
-			login_fail_cnt = login_fail_cnt + 1;
-			return;
-		}
-		if (login_fail_cnt === 3) {
-			alert("로그인 가능 횟수를 초과했습니다. 10초간 로그인 할 수 없습니다.");
-			return;
-		}
         //password.focus();
         return false;
     }
     
+	login_count();
+	
     form.action = "../index_login.html";
     form.method = "get";
     form.submit();
 
-	login_count();
 }
 
 //10주차 응용 문제
@@ -65,11 +52,55 @@ function login(){
 //쿠키의 값을 +1 업데이트 한다.
 
 function login_count() {
-	setCookie("login_cnt", login_cnt, 1);
+	// 쿠키에서 login_cnt 값을 가져옴
+  	var loginCnt = getCookie("login_cnt");
+  
+  	if (loginCnt === "") {
+    // 쿠키가 존재하지 않으면 초기값인 1로 설정
+    	loginCnt = 1;
+  	} else {
+    // 쿠키가 존재하면 현재 값에 1을 더함
+    	loginCnt = parseInt(loginCnt) + 1;
+  }
+  
+  // login_cnt 쿠키에 새로운 값을 설정
+  setCookie("login_cnt", loginCnt);
 }
 
 function logout_count() {
-	setCookie("logout_cnt", logout_cnt, 1);	
+	// 쿠키에서 login_cnt 값을 가져옴
+  	var logoutCnt = getCookie("logout_cnt");
+  
+  	if (logoutCnt === "") {
+    // 쿠키가 존재하지 않으면 초기값인 1로 설정
+    	logoutCnt = 1;
+  	} else {
+    // 쿠키가 존재하면 현재 값에 1을 더함
+    	logoutCnt = parseInt(logoutCnt) + 1;
+  }
+  
+  // login_cnt 쿠키에 새로운 값을 설정
+  setCookie("logout_cnt", logoutCnt);
+}
+
+function login_fail() {
+	// 쿠키에서 login_cnt 값을 가져옴
+  	var loginFailCnt = getCookie("login_fail");
+  
+  	if (loginFailCnt === "") {
+    // 쿠키가 존재하지 않으면 초기값인 1로 설정
+    	loginFailCnt = 1;
+  	} else {
+    // 쿠키가 존재하면 현재 값에 1을 더함
+    	loginFailCnt = parseInt(loginFailCnt) + 1;
+		if (loginFailCnt >= 3) {
+			alert("로그인 제한 횟수가 3번 이상입니다.");
+		}
+  }
+	
+  
+  // login_cnt 쿠키에 새로운 값을 설정
+  setCookie("login_fail", loginFailCnt);
 }
 
 function closePopup() {
