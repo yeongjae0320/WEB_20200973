@@ -28,7 +28,7 @@ function setCookie(name, value, expiredays) {
 //         return ;
 // }
 
-//10주차 도전과제 로그인, 로그아웃
+//10주차 도전과제 로그인, 로그아웃을 위해 살짝 수정
 function getCookie(name) {	
     var cookie = document.cookie;
     console.log("쿠키를 요청합니다.");
