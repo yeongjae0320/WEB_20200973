@@ -21,7 +21,7 @@ function timeReset() { // 시간 리셋
 
 function SetTime() { // 설정시간
 	logoutUser = true;
-	alert(" 세션의 지속 시간은 30초이고 만료되면 자동으로 로그아웃 됩니다.");
+	//alert(" 세션의 지속 시간은 30초이고 만료되면 자동으로 로그아웃 됩니다.");
 	session_del();
 	window.location.href = "index.html";
 }
@@ -39,7 +39,7 @@ function session_del() {	//세션 삭제
 	if (sessionStorage) {
 		//Retrieve data
 		sessionStorage.removeItem("Session_Storage_test");
-		alert("세션 만료 확인! : 세션 스토리지를 삭제합니다.");
+		//alert("세션 만료 확인! : 세션 스토리지를 삭제합니다.");
 	} else {
 		alert("세션 스토리지 지원X");
 	}

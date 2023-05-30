@@ -1,4 +1,4 @@
-function login(){
+function login(){	//로그인 및 체크
     let form = document.querySelector("#form_main");
     let id = document.querySelector("#floatingInput");
     let password = document.querySelector("#floatingPassword");
@@ -94,7 +94,7 @@ function login_fail() {
     // 쿠키가 존재하면 현재 값에 1을 더함
     	loginFailCnt = parseInt(loginFailCnt) + 1;
 		if (loginFailCnt >= 3) {
-			alert("로그인 제한 횟수가 3번 이상입니다.");
+			alert("로그인 실패 횟수가 3번 이상입니다. 잠시 제한하겠습니다.");
 		}
   }
 	

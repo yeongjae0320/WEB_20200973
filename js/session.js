@@ -52,7 +52,7 @@ function session_del() {	//세션 삭제
 	if (sessionStorage) {
 		//Retrieve data
 		sessionStorage.removeItem("Session_Storage_test");
-		alert("로그아웃 버튼 클릭 확인 : 세션 스토리지를 삭제합니다.");
+		//alert("로그아웃 버튼 클릭 확인 : 세션 스토리지를 삭제합니다.");
 	} else {
 		alert("세션 스토리지 지원X");
 	}
@@ -83,6 +83,7 @@ function session_join_set() { //세션 저장(객체)
     }   
 }
 
+//12주차 도전과제
 function session_join_get() {
 	let storedValue = sessionStorage.getItem("Session_Storage_object");
 	console.log(storedValue);	//대박 ㅠㅠ난 천재다
