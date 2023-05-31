@@ -87,5 +87,5 @@ function session_join_set() { //세션 저장(객체)
 // !!!!! 복호화 구현하기 !!!!! security 가져와서, encryted
 function session_join_get() {
 	let storedValue = sessionStorage.getItem("Session_Storage_object");
-	console.log(storedValue);	//대박 ㅠㅠ난 천재다
+	console.log(storedValue);
 }
