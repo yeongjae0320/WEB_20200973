@@ -26,19 +26,19 @@ function ResetLogOutTimer() { // 시간 타이머 리셋
 }
 
 //1. 클릭을 할 시 시간이 초기화된다.
-document.body.onclick = timeReset();
-timeoutHand = setTimeout('SetTime();', logoutTimeInterval);	//이 시간 이후에 호출되는 타이머 설정
+// document.body.onclick = timeReset();
+// timeoutHand = setTimeout('SetTime();', logoutTimeInterval);	//이 시간 이후에 호출되는 타이머 설정
 
-function session_del() {	//세션 삭제
-	//Check if the sessionStorage object exists
-	if (sessionStorage) {
-		//Retrieve data
-		sessionStorage.removeItem("Session_Storage_test");
-		//alert("세션 만료 확인! : 세션 스토리지를 삭제합니다.");
-	} else {
-		alert("세션 스토리지 지원X");
-	}
-}
+// function session_del() {	//세션 삭제
+// 	//Check if the sessionStorage object exists
+// 	if (sessionStorage) {
+// 		//Retrieve data
+// 		sessionStorage.removeItem("Session_Storage_test");
+// 		//alert("세션 만료 확인! : 세션 스토리지를 삭제합니다.");
+// 	} else {
+// 		alert("세션 스토리지 지원X");
+// 	}
+// }
 
 //2. 마우스를 움직일 시 시간이 초기화된다.
 document.body.onmousemove = timeReset; // 마우스 이동 감지
