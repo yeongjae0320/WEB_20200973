@@ -3,6 +3,7 @@ function login(){	//로그인 및 체크
 	let id = document.querySelector("#floatingInput");
 	let password = document.querySelector("#floatingPassword");
 	let check = document.querySelector("#idSaveCheck");
+	//이메일, 패스워드 형식 체크
 	let id_regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 	let pw_regex = /^[a-zA-Z0-9!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]{8,}$/;
 	
@@ -24,9 +25,11 @@ function login(){	//로그인 및 체크
 			form.submit();
 	}
 	
+	//이메일, 패스워드 형식 체크
 	if(!id_regex.test(id.value)) {
 		login_fail();
 		alert("유효한 이메일 주소를 입력해주세요.");
+		id.style.border = "3px solid red"; // 입력 필드 주위에 빨간색 테두리 추가
 		//id.focus();
 		return false;
 	}
@@ -34,6 +37,7 @@ function login(){	//로그인 및 체크
 	if(!pw_regex.test(password.value)) {
 		login_fail();
 		alert("비밀번호는 8자리 이상의 영문 대소문자, 숫자, 특수문자를 조합하여 입력해주세요.");
+		password.style.border = "3px solid red"; // 입력 필드 주위에 빨간색 테두리 추가
 		//password.focus();
 		return false;
 	}
