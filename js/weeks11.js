@@ -47,9 +47,25 @@ ResetLogOutTimer(); // 초기화
 function session_del() {
   // 세션 삭제
   if (sessionStorage) {
-    sessionStorage.removeItem("Session_Storage_test");
+    //sessionStorage.removeItem("Session_Storage_test");
+	  sessionStorage.removeItem("Session_Storage_object");
+	  sessionStorage.removeItem("Session_Storage_encrypted");
     // alert("세션 만료 확인! : 세션 스토리지를 삭제합니다.");
   } else {
     alert("세션 스토리지 지원X");
   }
 }
+
+//추가해봄
+function addJavascript(jsname) {	//자바스크립트 외부 연동
+	var th = document.getElementsByTagName('head')[0];
+	var s = document.createElement('script');
+	s.setAttribute('type','text/javascript');
+	s.setAttribute('src',jsname);
+	th.appendChild(s);
+
+}
+addJavascript('/js/security.js'); // 암복호화 함수
+addJavascript('/js/session.js'); // 세션 함수
+addJavascript('/js/cookie.js'); // 쿠키 함수
+addJavascript('/js/login.js');	// 로그인 함수
