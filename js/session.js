@@ -84,7 +84,7 @@ function session_join_set() { //세션 저장(객체)
 }
 
 //12주차 응용 문제 풀기
-// !!!!! 복호화 구현하기 !!!!! security 가져와서
+// !!!!! 복호화 구현하기
 function session_join_get() {
 	let storedValue = sessionStorage.getItem("Session_Storage_object");
 	sessionStorage.getItem("Session_Storage_encryted");
