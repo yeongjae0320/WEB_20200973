@@ -17,7 +17,6 @@ function login(){	//로그인 및 체크
 	}
 	
 	if (id.value.length === 0 || password.value.length === 0) {
-		login_fail();
 		alert("아이디와 비밀번호를 모두 입력해주세요.");
 	} else {
 		
@@ -27,17 +26,19 @@ function login(){	//로그인 및 체크
 	
 	//이메일, 패스워드 형식 체크
 	if(!id_regex.test(id.value)) {
-		login_fail();
-		alert("유효한 이메일 주소를 입력해주세요.");
 		id.style.border = "3px solid red"; // 입력 필드 주위에 빨간색 테두리 추가
+		alert("유효한 이메일 주소를 입력해주세요.");
+		
+		login_fail();
 		//id.focus();
 		return false;
 	}
     
 	if(!pw_regex.test(password.value)) {
-		login_fail();
-		alert("비밀번호는 8자리 이상의 영문 대소문자, 숫자, 특수문자를 조합하여 입력해주세요.");
 		password.style.border = "3px solid red"; // 입력 필드 주위에 빨간색 테두리 추가
+		alert("비밀번호는 8자리 이상의 영문 대소문자, 숫자, 특수문자를 조합하여 입력해주세요.");
+		
+		login_fail();
 		//password.focus();
 		return false;
 	}
@@ -97,8 +98,10 @@ function login_fail() {
   	} else {
 	// 쿠키가 존재하면 현재 값에 1을 더함
 		loginFailCnt = parseInt(loginFailCnt) + 1;
-		if (loginFailCnt >= 3) {
-			alert("로그인 실패 횟수가 3번 이상입니다. 잠시 제한하겠습니다.");
+		if (loginFailCnt === 3) {
+			alert("로그인을 3번 실패하셨습니다. 홈페이지로 돌아가겠습니다.");
+			location.href = "index.html";
+			//쿠키 삭제 구현하기
 		}
   }
 	setCookie("login_fail", loginFailCnt);
