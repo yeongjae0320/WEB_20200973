@@ -1,7 +1,7 @@
 function pop_up() {
 		var cookieCheck = getCookie("popupYN");
         if (cookieCheck != "N"){
-        	window.open("pop_up.html", "팝업테스트", "width=400, height=300, top=10, left=10");
+        	window.open("pop_up.html", "팝업테스트", "width=600, height=300, top=200, left=300");
         }
 }
 
