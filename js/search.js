@@ -10,6 +10,7 @@ function search_message(){
 	
 	if (search_str.value.length === 0) {
 		alert("검색어가 비었습니다. 입력해주세요");
+		location.href = "index.html";
 	}
 	else if (search_array.length >= MAX_SEARCH_COUNT) {
         alert("최대 검색어 개수를 초과하였습니다.");

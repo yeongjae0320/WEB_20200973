@@ -51,6 +51,25 @@ function login(){	//로그인 및 체크
 
 }
 
+function search_count() {
+	//쿠키에서 search_cnt 값을 가져옴
+	var searchCnt = getCookie("search_cnt");
+	
+	if (searchCnt == "") {
+		//쿠키가 존재하지 않으면 초기값인 1로 설정
+		searchCnt = 1;
+	} else {
+		searchCnt = parseInt(searchCnt) + 1;
+	}
+	
+	if (searchCnt === 10) {
+		alert("검색 버튼을 너무 많이 누르셨어요! 그만 눌러주세요! T.T");
+	}
+	
+	//search_cnt 쿠키에 새로운 값을 설정
+	setCookie("search_cnt", searchCnt);
+}
+
 //10주차 응용 문제
 //버튼을 클릭할 때마다 횟수(정수)를 증가
 //기존 쿠키의 카운트 값을 얻는다.

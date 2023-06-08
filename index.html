@@ -15,6 +15,7 @@
         <script type="text/javascript" src="js/hover.js" defer></script>
     	<script type="text/javascript" src="js/array_test.js" defer></script>
 		<script type="text/javascript" src="js/array_test2.js" defer></script>
+		<script type="text/javascript" src="js/login.js" defer></script>
 	</head>
     <body onload="pop_up();">
         <title>타이틀 테스트</title>
@@ -117,7 +118,7 @@
                 <mx-auto>
                     <input name="query" type="text" class="form-control-lg" placeholder="검색어 입력" aria-label="search" aria-describedby="search_btn" id="search_txt">
                 </mx-auto>
-                <button class="btn btn-success" type="submit" id="search_btn">
+                <button class="btn btn-success" type="submit" id="search_btn" onclick="search_count();">
                     검색
                 </button>
             </div>
