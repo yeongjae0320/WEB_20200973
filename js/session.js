@@ -83,7 +83,7 @@ function session_join_set() { //세션 저장(객체)
         alert("세션 스토리지 지원 x");
     }   
 }
-
+ㅇ
 //12주차 응용 문제 풀기
 function session_join_get() {
 	let storedValue = sessionStorage.getItem("Session_Storage_object");
