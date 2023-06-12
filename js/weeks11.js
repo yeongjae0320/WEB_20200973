@@ -44,7 +44,7 @@ function ResetLogOutTimer() { // 시간 타이머 리셋
 //2. 마우스를 움직일 시 시간이 초기화된다.
 document.body.onmousemove = timeReset; // 마우스 이동 감지
 ResetLogOutTimer(); // 초기화
-ㅇ
+
 function session_del() {
   // 세션 삭제
   if (sessionStorage) {
