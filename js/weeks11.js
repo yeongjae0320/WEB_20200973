@@ -49,6 +49,7 @@ function session_del() {
   // 세션 삭제
   if (sessionStorage) {
     //sessionStorage.removeItem("Session_Storage_test");
+	  sessionStorage.removeItem("Session_Storage_object");
 	  sessionStorage.removeItem("Session_Storage_encrypted");
     // alert("세션 만료 확인! : 세션 스토리지를 삭제합니다.");
   } else {
