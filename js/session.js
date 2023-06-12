@@ -51,6 +51,7 @@ function session_del() {	//세션 삭제
 	//Check if the sessionStorage object exists
 	if (sessionStorage) {
 		//Retrieve data
+		sessionStorage.removeItem("Session_Storage_object");
 		sessionStorage.removeItem("Session_Storage_encrypted");
 		//alert("로그아웃 버튼 클릭 확인 : 세션 스토리지를 삭제합니다.");
 	} else {
@@ -84,7 +85,6 @@ function session_join_set() { //세션 저장(객체)
 }
 
 //12주차 응용 문제 풀기
-// !!!!! 복호화 구현하기
 function session_join_get() {
 	let storedValue = sessionStorage.getItem("Session_Storage_object");
 	sessionStorage.getItem("Session_Storage_encryted");
