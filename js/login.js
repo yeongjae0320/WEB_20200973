@@ -108,7 +108,6 @@ function logout_count() {
 }
 
 function login_fail() {
-	// 쿠키에서 login_cnt 값을 가져옴
   	var loginFailCnt = getCookie("login_fail");
   
   	if (loginFailCnt === "") {
@@ -117,9 +116,9 @@ function login_fail() {
   	} else {
 	// 쿠키가 존재하면 현재 값에 1을 더함
 		loginFailCnt = parseInt(loginFailCnt) + 1;
-		if (loginFailCnt === 3) {
-			alert("로그인을 3번 실패하셨습니다. 홈페이지로 돌아가겠습니다.");
-			location.href = "index.html";
+		if (loginFailCnt % 3 == 0) {
+			alert("로그인을 3번 실패하셨습니다. 페이지를 닫겠습니다. 새 창을 여세요.");
+			self.close();
 			//쿠키 삭제 구현하기
 		}
   }
