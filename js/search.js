@@ -3,6 +3,8 @@ document.getElementById("search_btn").addEventListener('click', search_message);
 var search_array = [];	//빈 배열 - 전역 변수
 var MAX_SEARCH_COUNT = 10;    //최대 검색어 개수
 
+const forbiddenWords = ["금지어1", "금지어2", "금지어3"];
+
 //변수에 저장
 let search_str = document.querySelector("#search_txt");
 
@@ -12,6 +14,11 @@ function search_message(){
 		alert("검색어가 비었습니다. 입력해주세요");
 		location.href = "index.html";
 	}
+	
+	else if (forbiddenWords.includes(search_str.value)) {
+		alert("검색어가 제한 단어에 해당됩니다. 다른 검색어를 입력해주세요.");
+	}
+	
 	else if (search_array.length >= MAX_SEARCH_COUNT) {
         alert("최대 검색어 개수를 초과하였습니다.");
         search_array.splice(0, 1);    //첫번째 값 삭제
