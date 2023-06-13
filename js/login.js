@@ -118,8 +118,7 @@ function login_fail() {
 		loginFailCnt = parseInt(loginFailCnt) + 1;
 		if (loginFailCnt % 3 == 0) {
 			alert("로그인을 3번 실패하셨습니다. 페이지를 닫겠습니다. 새 창을 여세요.");
-			self.close();
-			//쿠키 삭제 구현하기
+			self.close();	//현재 페이지 닫기
 		}
   }
 	setCookie("login_fail", loginFailCnt);
