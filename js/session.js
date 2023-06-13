@@ -86,9 +86,7 @@ function session_join_set() { //세션 저장(객체)
 
 //12주차 응용 문제 풀기
 function session_join_get() {
-	
 	let storedValue1 = sessionStorage.getItem("Session_Storage_object");
 	let storedValue2 = sessionStorage.getItem("Session_Storage_encryted");
-	ㅇ
 	console.log(storedValue1);
 }
