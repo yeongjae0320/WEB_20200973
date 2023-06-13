@@ -90,5 +90,5 @@ function session_join_get() {
 	let storedValue1 = sessionStorage.getItem("Session_Storage_object");
 	let storedValue2 = sessionStorage.getItem("Session_Storage_encryted");
 	
-	console.log(storedValue);
+	console.log(storedValue1);
 }
